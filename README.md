@@ -2,7 +2,7 @@
 
 **Embedded Systems Engineer · IoT Developer · Computer Vision Enthusiast**
 
-📍 Bangalore, India &nbsp;|&nbsp; 📧 abhishek2709.03@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://www.linkedin.com/in/abhiyanthara)
+📍 Bangalore, India &nbsp;|&nbsp; 📧 abhishek2709.03@gmail.com &nbsp;|&nbsp; 🔗 [LinkedIn](https://www.linkedin.com/in/abhiyanthara)| 🌐 [Portfolio](https://adorable-pudding-6c3843.netlify.app)
 
 ---
 
