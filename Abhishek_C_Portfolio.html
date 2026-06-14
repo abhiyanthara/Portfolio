@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek C — Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--blue:#1A3A6B;--blue-light:#E8EEF8;--text:#1A1A1A;--muted:#555;--border:#E0E0E0;--bg:#fff;--card:#F8F9FA;}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* NAV */
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:100;padding:0 2rem;}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{font-weight:700;font-size:1.1rem;color:var(--blue);}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:0.9rem;color:var(--muted);font-weight:500;}
+.nav-links a:hover{color:var(--blue);text-decoration:none;}
+
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.container{max-width:900px;margin:0 auto;}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;}
+h2{font-size:2rem;font-weight:700;margin-bottom:2rem;color:var(--text);}
+
+/* HERO */
+#hero{background:var(--blue);color:#fff;padding:6rem 2rem;}
+#hero .container{display:flex;flex-direction:column;gap:1rem;}
+.hero-tag{background:rgba(255,255,255,0.15);display:inline-block;padding:0.3rem 0.8rem;border-radius:20px;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;width:fit-content;}
+#hero h1{font-size:3rem;font-weight:800;line-height:1.1;}
+#hero .subtitle{font-size:1.1rem;opacity:0.85;max-width:540px;}
+.hero-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;}
+.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.6rem 1.4rem;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-white{background:#fff;color:var(--blue);}
+.btn-white:hover{background:#f0f4ff;text-decoration:none;}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.6);}
+.btn-outline:hover{background:rgba(255,255,255,0.1);text-decoration:none;}
+.hero-stats{display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;}
+.stat-num{font-size:1.6rem;font-weight:800;}
+.stat-label{font-size:0.8rem;opacity:0.7;}
+
+/* ABOUT */
+#about{background:#fff;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.about-text p{color:var(--muted);margin-bottom:1rem;font-size:0.98rem;}
+.skills-grid{display:flex;flex-direction:column;gap:0.75rem;}
+.skill-item{display:flex;flex-direction:column;gap:0.3rem;}
+.skill-label{font-size:0.82rem;font-weight:600;color:var(--text);}
+.skill-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.skill-fill{height:100%;background:var(--blue);border-radius:3px;}
+
+/* EXPERIENCE */
+#experience{background:var(--card);}
+.timeline{display:flex;flex-direction:column;gap:0;}
+.timeline-item{display:grid;grid-template-columns:140px 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);}
+.timeline-item:last-child{border-bottom:none;}
+.timeline-date{font-size:0.82rem;color:var(--muted);font-weight:600;padding-top:0.2rem;}
+.timeline-content h3{font-size:1rem;font-weight:700;color:var(--blue);margin-bottom:0.2rem;}
+.timeline-content .org{font-size:0.85rem;color:var(--muted);margin-bottom:0.6rem;}
+.timeline-content ul{padding-left:1.1rem;}
+.timeline-content li{font-size:0.88rem;color:var(--muted);margin-bottom:0.3rem;}
+.tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
+.tag{background:var(--blue-light);color:var(--blue);font-size:0.75rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:4px;}
+
+/* PROJECTS */
+#projects{background:#fff;}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.project-card{border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:box-shadow 0.2s;}
+.project-card:hover{box-shadow:0 4px 20px rgba(26,58,107,0.1);}
+.project-icon{width:40px;height:40px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.2rem;}
+.project-card h3{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;}
+.project-card p{font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;}
+
+/* SKILLS SECTION */
+#skills{background:var(--card);}
+.skills-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.skill-cat{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.skill-cat h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);margin-bottom:0.75rem;}
+.skill-cat ul{padding-left:1rem;}
+.skill-cat li{font-size:0.85rem;color:var(--muted);margin-bottom:0.3rem;}
+
+/* LEADERSHIP */
+#leadership{background:#fff;}
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+.lead-card{border-left:3px solid var(--blue);padding:1rem 1.25rem;background:var(--card);border-radius:0 8px 8px 0;}
+.lead-card h4{font-size:0.92rem;font-weight:700;margin-bottom:0.3rem;}
+.lead-card p{font-size:0.84rem;color:var(--muted);}
+.lead-card .lead-num{font-size:1.4rem;font-weight:800;color:var(--blue);margin-bottom:0.2rem;}
+
+/* CONTACT */
+#contact{background:var(--blue);color:#fff;text-align:center;}
+#contact h2{color:#fff;}
+#contact p{opacity:0.8;margin-bottom:2rem;font-size:1rem;}
+.contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+.contact-link{display:flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.12);padding:0.7rem 1.2rem;border-radius:8px;color:#fff;font-size:0.9rem;font-weight:500;transition:background 0.2s;}
+.contact-link:hover{background:rgba(255,255,255,0.2);text-decoration:none;}
+
+/* FOOTER */
+footer{text-align:center;padding:1.5rem;font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border);}
+
+@media(max-width:640px){
+  #hero h1{font-size:2rem;}
+  .about-grid{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .timeline-item{grid-template-columns:1fr;}
+  .timeline-date{padding-top:0;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Abhishek C</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="container">
+    <span class="hero-tag">Open to Work · Bangalore</span>
+    <h1>Abhishek C</h1>
+    <p class="subtitle">Embedded Systems Engineer &amp; IoT Developer — building real-time firmware, sensor-integrated hardware, and intelligent embedded solutions.</p>
+    <div class="hero-links">
+      <a href="mailto:abhishek2709.03@gmail.com" class="btn btn-white">Get in Touch</a>
+      <a href="https://www.linkedin.com/in/abhiyanthara" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Embedded Projects</span></div>
+      <div class="stat"><span class="stat-num">90%</span><span class="stat-label">Face Recognition Accuracy</span></div>
+      <div class="stat"><span class="stat-num">±1g</span><span class="stat-label">Sensor Precision</span></div>
+      <div class="stat"><span class="stat-num">1000+</span><span class="stat-label">Event Attendees Led</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Me</p>
+    <h2>Engineer. Builder. Leader.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a final-year Electronics &amp; Telecommunication Engineering student at Dr. Ambedkar Institute of Technology, Bangalore — passionate about building embedded systems that solve real problems.</p>
+        <p>From ESP32 firmware and real-time PID controllers to computer vision pipelines with OpenCV, I work at the intersection of hardware and software. I read schematics, debug with logic analyzers, and ship working systems.</p>
+        <p>Outside engineering, I've led large-scale events, managed ₹2,00,000+ budgets, and coordinated teams of 50+ — bringing the same systematic thinking to operations as I do to firmware.</p>
+        <p><strong>B.E. ECE · CGPA 6.92</strong><br>Dr. Ambedkar Institute of Technology (Autonomous, affiliated to VTU) · 2022–2026</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item"><span class="skill-label">Embedded C / Firmware</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">ESP32 / Arduino</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">Python / OpenCV</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">I2C / UART / SPI Protocols</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">Sensor Fusion</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">Hardware Debugging</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">PCB Schematic Reading</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+        <div class="skill-item"><span class="skill-label">C++</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2>Where I've worked</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2024<br>Internship</div>
+        <div class="timeline-content">
+          <h3>Embedded Systems &amp; Computer Vision Intern</h3>
+          <div class="org">Apsis Solutions · Bangalore</div>
+          <ul>
+            <li>Built a face recognition security system — ~90% accuracy at 24fps using OpenCV &amp; Python</li>
+            <li>Developed ESP32 firmware for a self-balancing board with real-time PID control loop</li>
+            <li>Designed a digital weighing system with ±1g accuracy using load cell &amp; 7-seg display</li>
+            <li>Implemented color &amp; shape detection pipeline for embedded vision classification</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">ESP32</span><span class="tag">OpenCV</span><span class="tag">Python</span>
+            <span class="tag">I2C</span><span class="tag">UART</span><span class="tag">Embedded C</span>
+            <span class="tag">PID Control</span><span class="tag">Sensor Fusion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <h2>What I've built</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">📷</div>
+        <h3>ESP32 RTC Surveillance Camera</h3>
+        <p>Motion-triggered image capture system on ESP32-CAM with PIR sensor, RTC timestamping, and real-time Wi-Fi alert notifications for forensic-grade event logging.</p>
+        <div class="tags"><span class="tag">ESP32-CAM</span><span class="tag">I2C</span><span class="tag">Wi-Fi OTA</span><span class="tag">RTC</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">🔧</div>
+        <h3>Underground Pipeline Fault Detection</h3>
+        <p>Multi-sensor fusion architecture monitoring 4 pipelines using 4 heterogeneous sensors on ESP32, with real-time fault isolation and predictive maintenance logic.</p>
+        <div class="tags"><span class="tag">Sensor Fusion</span><span class="tag">ESP32</span><span class="tag">UART</span><span class="tag">Embedded C</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <h3>Face Recognition Security System</h3>
+        <p>Real-time intruder detection system achieving ~90% accuracy at 24fps using OpenCV and Python, with automated alert notifications on unauthorized access.</p>
+        <div class="tags"><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">Computer Vision</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">⚖️</div>
+        <h3>Precision Digital Weighing System</h3>
+        <p>Load cell based weighing system with 7-segment display driver achieving ±1g measurement accuracy through careful analog signal conditioning and calibration.</p>
+        <div class="tags"><span class="tag">Load Cell</span><span class="tag">Signal Conditioning</span><span class="tag">Embedded C</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Technical Skills</p>
+    <h2>My toolkit</h2>
+    <div class="skills-cats">
+      <div class="skill-cat">
+        <h4>Languages</h4>
+        <ul><li>C (Embedded)</li><li>C++</li><li>Python</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Hardware</h4>
+        <ul><li>ESP32 / ESP32-CAM</li><li>Arduino Uno</li><li>PCB Schematic Reading</li><li>Logic Analyzer / Serial Debug</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Protocols</h4>
+        <ul><li>I2C, UART, SPI</li><li>Wi-Fi (802.11)</li><li>Sensor Fusion</li><li>Analog Signal Conditioning</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Tools</h4>
+        <ul><li>Arduino IDE</li><li>PlatformIO</li><li>OpenCV</li><li>Git</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Concepts</h4>
+        <ul><li>RTOS (Interrupt-driven, PID)</li><li>Real-Time Systems</li><li>Embedded Linux (awareness)</li><li>Hardware Debugging</li></ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Soft Skills</h4>
+        <ul><li>Team Leadership (50+ people)</li><li>Budget Management</li><li>Cross-functional Coordination</li><li>Public Speaking</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="container">
+    <p class="section-label">Leadership</p>
+    <h2>Beyond the lab</h2>
+    <div class="lead-grid">
+      <div class="lead-card">
+        <div class="lead-num">3×</div>
+        <h4>Chief Organiser — Annual Cultural Fest</h4>
+        <p>Dr. Ambedkar Institute of Technology · Managed ₹2,00,000+ budget, 1,000+ attendees, vendor negotiations, and multi-track scheduling across 3 consecutive editions.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-num">50+</div>
+        <h4>Volunteer Team Lead — National Tech Exhibition</h4>
+        <p>Led a 50+ member volunteer team at a public national-level technical exhibition — coordinating logistics, crowd management, and real-time problem solving.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-num">Cell</div>
+        <h4>ASH Cell Member</h4>
+        <p>Dr. Ambedkar Institute of Technology · Elected member handling sensitive conflict resolution and reporting directly to senior institutional management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="section-label" style="color:rgba(255,255,255,0.6);">Contact</p>
+    <h2>Let's connect</h2>
+    <p>I'm actively looking for Graduate Engineer Trainee roles in Embedded Systems, VLSI, or Networking. Based in Bangalore and available immediately.</p>
+    <div class="contact-links">
+      <a href="mailto:abhishek2709.03@gmail.com" class="contact-link">✉ abhishek2709.03@gmail.com</a>
+      <a href="tel:+919108870240" class="contact-link">📞 +91 9108870240</a>
+      <a href="https://www.linkedin.com/in/abhiyanthara" target="_blank" class="contact-link">🔗 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Abhishek C · Built with purpose, not templates.</p>
+</footer>
+
+</body>
+</html>
